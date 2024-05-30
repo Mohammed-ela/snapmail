@@ -1,4 +1,4 @@
-
+<!-- resources/views/message/create.blade.php -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +6,20 @@
 </head>
 <body>
     <h1>Envoyer un message</h1>
+
+    @if (session('success'))
+        <p>{{ session('success') }}</p>
+    @endif
+
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form action="/" method="POST" enctype="multipart/form-data">
         @csrf
@@ -15,7 +29,7 @@
         <label for="message">Message:</label>
         <textarea name="message" required></textarea>
         <br>
-        <label for="photo">Photo (optionnel):</label>
+        <label for="photo">Photo:</label>
         <input type="file" name="photo">
         <br>
         <button type="submit">Envoyer</button>
