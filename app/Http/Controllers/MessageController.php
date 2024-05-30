@@ -13,6 +13,6 @@ class MessageController extends Controller
 
     public function store(Request $request)
     {
-        // je mettrais mon form blade
+        // Nous ajouterons le code pour gérer la soumission du formulaire plus tard
     }
 }
